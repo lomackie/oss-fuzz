@@ -20,7 +20,8 @@ RUN wget https://raw.githubusercontent.com/google/AFL/master/dictionaries/json.d
 
 RUN git clone --depth 1 https://github.com/dvyukov/go-fuzz-corpus
 
-RUN git clone --depth 1 https://github.com/cilium/cilium
-RUN git clone --depth 1 https://github.com/cncf/cncf-fuzzing
+RUN git clone --depth 1 -b fix-ci-fuzz https://github.com/lomackie/cilium
+RUN git clone --depth 1 -b cilium-ci-fuzz https://github.com/lomackie/cncf-fuzzing
+RUN git clone --depth 1 https://github.com/cilium/proxy
 COPY build.sh $SRC/
 WORKDIR $SRC/cilium
